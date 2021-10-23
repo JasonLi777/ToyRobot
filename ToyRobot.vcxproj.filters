@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Command">
+      <UniqueIdentifier>{49e781b4-9ff6-4366-a309-5a219867e168}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Command">
+      <UniqueIdentifier>{6205e285-2514-40e3-ae18-37fd90d371e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TableTop">
+      <UniqueIdentifier>{5b8217fe-fef3-401a-9d23-963fc61f3474}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TableTop">
+      <UniqueIdentifier>{b09ab2e8-5647-4320-a8d6-8b69aaeaf492}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ToyRobot">
+      <UniqueIdentifier>{5b52203a-ed77-4a70-a7ac-28df74be3d9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ToyRobot">
+      <UniqueIdentifier>{0ceb0b06-d936-498f-918b-bd35aba641ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Util">
+      <UniqueIdentifier>{8508731a-40aa-4078-b0e5-a3b48451078a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Util">
+      <UniqueIdentifier>{32f4e8cc-07f4-4063-a534-08d8ae209704}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Command\AbstractCommand.cpp">
+      <Filter>Source Files\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Command\MoveCommand.cpp">
+      <Filter>Source Files\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Command\PlaceCommand.cpp">
+      <Filter>Source Files\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Command\ReportCommand.cpp">
+      <Filter>Source Files\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Command\RotateCommand.cpp">
+      <Filter>Source Files\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Util\Direction.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Util\Position.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Util\StringHelper.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ToyRobot\ToyRobot.cpp">
+      <Filter>Source Files\ToyRobot</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ToyRobot\ToyRobotController.cpp">
+      <Filter>Source Files\ToyRobot</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ToyRobot\ToyRobotStatus.cpp">
+      <Filter>Source Files\ToyRobot</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TableTop\TableTop.cpp">
+      <Filter>Source Files\TableTop</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Command\AbstractCommand.h">
+      <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Command\MoveCommand.h">
+      <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Command\PlaceCommand.h">
+      <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Command\ReportCommand.h">
+      <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Command\RotateCommand.h">
+      <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Util\Direction.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Util\Position.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Util\StringHelper.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ToyRobot\ToyRobot.h">
+      <Filter>Header Files\ToyRobot</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ToyRobot\ToyRobotController.h">
+      <Filter>Header Files\ToyRobot</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ToyRobot\ToyRobotStatus.h">
+      <Filter>Header Files\ToyRobot</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TableTop\TableTop.h">
+      <Filter>Header Files\TableTop</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
