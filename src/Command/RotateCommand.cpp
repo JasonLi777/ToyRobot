@@ -30,3 +30,8 @@ ToyRobotStatus RotateCommand::execute(const ToyRobotStatus& oldStatus)
 
     return newStatus;
 }
+
+Direction::TurnEnum RotateCommand::direction() const
+{
+    return m_direction;
+}

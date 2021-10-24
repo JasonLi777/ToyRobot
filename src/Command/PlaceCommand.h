@@ -18,6 +18,10 @@ public:
 
     virtual ToyRobotStatus execute(const ToyRobotStatus& oldStatus) override;
 
+    std::shared_ptr<TableTop> tableTop() const;
+    Position position() const;
+    Direction direction() const;
+
 private:
     std::shared_ptr<TableTop> m_tableTop;
     Position m_position;

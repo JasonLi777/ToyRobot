@@ -12,6 +12,8 @@ public:
 
     virtual ToyRobotStatus execute(const ToyRobotStatus& oldStatus) override;
 
+    Direction::TurnEnum direction() const;
+
 private:
     Direction::TurnEnum m_direction;
 };

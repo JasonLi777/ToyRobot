@@ -7,7 +7,7 @@
 namespace StringHelper {
 
 std::vector<std::string> split(const std::string& str, const std::string& sep);
-
+std::string toUpper(const std::string& str);
 
 }
 

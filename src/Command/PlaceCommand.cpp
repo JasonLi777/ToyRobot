@@ -29,3 +29,18 @@ ToyRobotStatus PlaceCommand::execute(const ToyRobotStatus& oldStatus)
     //if new status is not valid then use old status
     return oldStatus;
 }
+
+std::shared_ptr<TableTop> PlaceCommand::tableTop() const
+{
+    return m_tableTop;
+}
+
+Position PlaceCommand::position() const
+{
+    return m_position;
+}
+
+Direction PlaceCommand::direction() const
+{
+    return m_direction;
+}
