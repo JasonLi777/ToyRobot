@@ -23,7 +23,7 @@ ToyRobotController::~ToyRobotController()
 
 bool ToyRobotController::execute(const std::string &command)
 {
-    if(!m_toyRobot || !m_tableTop) {
+    if(!m_toyRobot || !m_tableTop || command.empty()) {
         return false;
     }
 
