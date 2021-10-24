@@ -12,6 +12,11 @@ ToyRobotStatus::~ToyRobotStatus()
 {
 }
 
+bool ToyRobotStatus::operator==(const ToyRobotStatus &status) const
+{
+    return m_tableTop == status.tableTop() && m_position == status.position() && m_direction == status.direction();
+}
+
 std::shared_ptr<TableTop> ToyRobotStatus::tableTop() const
 {
     return m_tableTop;

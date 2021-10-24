@@ -13,6 +13,8 @@ public:
     ToyRobotStatus();
     ~ToyRobotStatus();
 
+    bool operator==(const ToyRobotStatus& status) const;
+
     std::shared_ptr<TableTop> tableTop() const;
     void setTableTop(std::shared_ptr<TableTop> tableTop);
 

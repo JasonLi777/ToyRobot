@@ -15,6 +15,8 @@ public:
     //execute command and update status
     void executeCommand(std::shared_ptr<AbstractCommand> command);
 
+    ToyRobotStatus status() const;
+
 private:
     ToyRobotStatus m_status;
 };

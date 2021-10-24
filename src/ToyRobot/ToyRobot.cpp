@@ -16,3 +16,8 @@ void ToyRobot::executeCommand(std::shared_ptr<AbstractCommand> command)
         m_status = command->execute(m_status);
     }
 }
+
+ToyRobotStatus ToyRobot::status() const
+{
+    return m_status;
+}
