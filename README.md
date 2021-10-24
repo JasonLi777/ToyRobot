@@ -25,3 +25,6 @@
 #### REPORT
 - REPORT will announce the X,Y and F of the robot.
 
+## Constraints
+- The toy robot must not fall off the table during movement. This also includes the initial placement of the toy robot.
+- Anymove that would cause the robot to fall must be ignored.
