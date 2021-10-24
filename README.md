@@ -50,3 +50,12 @@ There is a ready-to-use application in ToyRobot\example, ToyRobot.exe. Click Sta
 - MOVE
 - REPORT
 - Output: 3,3,NORTH
+
+## Dependencies
+- Google test, https://github.com/google/googletest
+
+## Build
+- DownLoad Visual Studio 2019.
+- Open ToyRobot.sln with Visual Studio 2019.
+- Build Solution.
+
