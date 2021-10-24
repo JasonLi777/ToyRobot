@@ -33,7 +33,7 @@
 There is a ready-to-use application in ToyRobot\example, ToyRobot.exe. Click StartToyRobot.bat will use command.txt as input.
 
 a)----------------
-PLACE 0,0,NORTH
+PLACE 0,0,NORTH \n
 MOVE
 REPORT
 Output: 0,1,NORTH
