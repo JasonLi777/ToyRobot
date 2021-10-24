@@ -61,6 +61,6 @@ There is a ready-to-use application in ToyRobot\example, ToyRobot.exe. Click Sta
 
 ## Unit test
 - Using Google test for the project.
-- Active project ToyRobotTest to debug.
-- Test code locate at ToyRobot\test
-- There is a runnable exe in ToyRobot\example. Execute UnitTest.bat to see results.
+- Active project "ToyRobotTest" to debug.
+- Test code locate at "ToyRobot\test"
+- There is a runnable exe in "ToyRobot\example". Execute "UnitTest.bat" to see results.
