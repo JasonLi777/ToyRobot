@@ -15,6 +15,11 @@ Position::~Position()
 {
 }
 
+bool Position::operator==(const Position &position) const
+{
+    return m_x == position.x() && m_y == position.y();
+}
+
 int Position::x() const
 {
     return m_x;

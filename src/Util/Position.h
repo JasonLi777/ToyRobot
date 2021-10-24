@@ -8,6 +8,8 @@ public:
     Position(const int x, const int y);
     ~Position();
 
+    bool operator==(const Position& position) const;
+
     int x() const;
     void setX(const int x);
 

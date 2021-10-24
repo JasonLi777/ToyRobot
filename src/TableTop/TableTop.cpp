@@ -11,12 +11,12 @@ TableTop::~TableTop()
 {
 }
 
-int TableTop::getWidth() const
+int TableTop::width() const
 {
     return m_width;
 }
 
-int TableTop::getLength() const
+int TableTop::length() const
 {
     return m_length;
 }
@@ -28,6 +28,10 @@ bool TableTop::isValid() const
 
 bool TableTop::isOnTheTable(const Position &position) const
 {
+    if (!isValid()) {
+        return false;
+    }
+
     return position.x() >= 0 && position.x() < m_width && position.y() >= 0 && position.y() < m_length;
 }
 

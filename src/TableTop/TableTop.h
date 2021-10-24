@@ -9,8 +9,8 @@ public:
     TableTop(const int width = 5, const int length = 5);
     ~TableTop();
 
-    int getWidth() const;
-    int getLength() const;
+    int width() const;
+    int length() const;
 
     bool isValid() const;
     bool isOnTheTable(const Position& position) const;

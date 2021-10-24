@@ -29,6 +29,11 @@ Direction::~Direction()
 {
 }
 
+bool Direction::operator==(const Direction &direction) const
+{
+    return m_direction == direction.value();
+}
+
 Direction::DirectionEnum Direction::value() const
 {
     return m_direction;

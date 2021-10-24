@@ -27,6 +27,8 @@ public:
     Direction(const DirectionEnum direction);
     ~Direction();
 
+    bool operator==(const Direction& direction) const;
+
     DirectionEnum value() const;
     void setValue(const DirectionEnum direction);
 
