@@ -36,6 +36,9 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="test_MoveCommand.cpp" />
+    <ClCompile Include="test_RotateCommand.cpp" />
+    <ClCompile Include="test_PlaceCommand.cpp" />
     <ClCompile Include="test_ToyRobotStatus.cpp" />
     <ClCompile Include="test_TableTop.cpp" />
     <ClCompile Include="test_StringHelper.cpp" />
@@ -90,7 +93,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>Position;Direction;StringHelper;TableTop;ToyRobotStatus;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Position;Direction;StringHelper;TableTop;ToyRobotStatus;AbstractCommand;PlaceCommand;MoveCommand;RotateCommand;ReportCommand;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>D:\1.code\Iress\ToyRobot\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

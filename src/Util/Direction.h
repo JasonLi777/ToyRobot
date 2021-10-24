@@ -15,7 +15,7 @@ public:
     };
 
     enum TurnEnum {
-        LEFT = 0,
+        LEFT = 1,
         RIGHT
     };
 
