@@ -40,8 +40,11 @@ bool ToyRobotController::execute(const std::string &command)
     return true;
 }
 
-std::shared_ptr<AbstractCommand> ToyRobotController::parseCommand(const std::string &command) const
+std::shared_ptr<AbstractCommand> ToyRobotController::parseCommand(const std::string &s) const
 {
+    //to upper
+    std::string command = StringHelper::toUpper(s);
+
     std::vector<std::string> subs = StringHelper::split(command, " ");
     if(subs.empty()) {
         return nullptr;
@@ -49,6 +52,7 @@ std::shared_ptr<AbstractCommand> ToyRobotController::parseCommand(const std::str
 
     std::string action = subs[0];
 
+    //only place Command have parameter
     if(action == "PLACE") {
         //first string is action, second string is parameters
         if(subs.size() != 2) {
@@ -72,7 +76,14 @@ std::shared_ptr<AbstractCommand> ToyRobotController::parseCommand(const std::str
         }  catch (std::exception e) {
             return nullptr;
         }
-    } else if(action == "MOVE") {
+    }
+
+    //other command have no parameter
+    if(subs.size() != 1) {
+        return nullptr;
+    }
+
+    if(action == "MOVE") {
         return std::make_shared<MoveCommand>();
     } else if(action == "LEFT") {
         return std::make_shared<RotateCommand>(Direction::LEFT);
@@ -83,5 +94,15 @@ std::shared_ptr<AbstractCommand> ToyRobotController::parseCommand(const std::str
     }
 
     return nullptr;
+}
+
+std::shared_ptr<ToyRobot> ToyRobotController::toyRobot() const
+{
+    return m_toyRobot;
+}
+
+std::shared_ptr<TableTop> ToyRobotController::tableTop() const
+{
+    return m_tableTop;
 }
 
