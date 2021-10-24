@@ -1,8 +1,10 @@
 #include "ReportCommand.h"
 #include "..\ToyRobot\ToyRobotStatus.h"
 #include <iostream>
+#include <sstream>
 
-ReportCommand::ReportCommand()
+ReportCommand::ReportCommand() :
+    m_lastReport("")
 {
 }
 
@@ -20,7 +22,18 @@ ToyRobotStatus ReportCommand::execute(const ToyRobotStatus& oldStatus)
 
     Position position = oldStatus.position();
 
-    std::cout << position.x() << "," << position.y() << "," << oldStatus.direction().toString() << std::endl;
+    std::ostringstream stream;
+    stream << position.x() << "," << position.y() << "," << oldStatus.direction().toString();
+
+    //keep current report
+    m_lastReport = stream.str();
+
+    std::cout << m_lastReport << std::endl;
 
     return oldStatus;
+}
+
+std::string ReportCommand::getLastReport() const
+{
+    return m_lastReport;
 }

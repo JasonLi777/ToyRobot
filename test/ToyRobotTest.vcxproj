@@ -36,6 +36,7 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="test_ReportCommand.cpp" />
     <ClCompile Include="test_MoveCommand.cpp" />
     <ClCompile Include="test_RotateCommand.cpp" />
     <ClCompile Include="test_PlaceCommand.cpp" />
