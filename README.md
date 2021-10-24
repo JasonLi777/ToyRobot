@@ -28,3 +28,25 @@
 ## Constraints
 - The toy robot must not fall off the table during movement. This also includes the initial placement of the toy robot.
 - Anymove that would cause the robot to fall must be ignored.
+
+## Example
+There is a ready-to-use application in ToyRobot\example, ToyRobot.exe. Click StartToyRobot.bat will use command.txt as input.
+
+a)----------------
+PLACE 0,0,NORTH
+MOVE
+REPORT
+Output: 0,1,NORTH
+b)----------------
+PLACE 0,0,NORTH
+LEFT
+REPORT
+Output: 0,0,WEST
+c)----------------
+PLACE 1,2,EAST
+MOVE
+MOVE
+LEFT
+MOVE
+REPORT
+Output: 3,3,NORTH
