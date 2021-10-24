@@ -1,12 +1,12 @@
 # Toy Robot Code Challenge
 
-# Description
+## Description
 - The application is a simulation of a toy robot moving on a square table top, of dimensions 5 units x 5 units.
 - There are no other obstructions on the table surface.
 - The robot is free to roam around the surface of the table, but must be prevented from falling to destruction.
 - Any movement that would result in the robot falling from the table must be prevented, however further valid movement commands must still be allowed.
 
-# Commands
+## Commands
 - A robot that is not on the table can choose to ignore the MOVE, LEFT, RIGHT and REPORT commands.
 - Input can be from a file, or from standard input.
 
@@ -24,3 +24,4 @@
 
 #### REPORT
 - REPORT will announce the X,Y and F of the robot.
+
