@@ -32,22 +32,21 @@
 ## Example
 There is a ready-to-use application in ToyRobot\example, ToyRobot.exe. Click StartToyRobot.bat will use command.txt as input.
 
-
-a)----------------
-PLACE 0,0,NORTH \n
-MOVE
-REPORT
-Output: 0,1,NORTH
-b)----------------
-PLACE 0,0,NORTH
-LEFT
-REPORT
-Output: 0,0,WEST
-c)----------------
-PLACE 1,2,EAST
-MOVE
-MOVE
-LEFT
-MOVE
-REPORT
-Output: 3,3,NORTH
+#### a)----------------
+- PLACE 0,0,NORTH \n
+- MOVE
+- REPORT
+- Output: 0,1,NORTH
+#### b)----------------
+- PLACE 0,0,NORTH
+- LEFT
+- REPORT
+- Output: 0,0,WEST
+#### c)----------------
+- PLACE 1,2,EAST
+- MOVE
+- MOVE
+- LEFT
+- MOVE
+- REPORT
+- Output: 3,3,NORTH
