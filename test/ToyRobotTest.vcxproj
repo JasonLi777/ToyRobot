@@ -36,6 +36,7 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="test_ToyRobotController.cpp" />
     <ClCompile Include="test_ToyRobot.cpp" />
     <ClCompile Include="test_ReportCommand.cpp" />
     <ClCompile Include="test_MoveCommand.cpp" />

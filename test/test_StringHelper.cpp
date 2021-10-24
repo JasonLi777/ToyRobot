@@ -26,7 +26,15 @@ TEST(StringHelperTest, Split_Valid)
 TEST(StringHelperTest, Split_LeadingAndRearMatch)
 {
     std::string str = "  123 abc efg   ";
-    std::vector<std::string> expected = { "", "", "123", "abc", "efg", "", "" };
+    std::vector<std::string> expected = {"123", "abc", "efg"};
 
     EXPECT_EQ(expected, StringHelper::split(str, " "));
+}
+
+TEST(StringHelperTest, ToUpper)
+{
+    std::string str = "  123 abc efg   ";
+    std::string expected = "  123 ABC EFG   ";
+
+    EXPECT_EQ(expected, StringHelper::toUpper(str));
 }
