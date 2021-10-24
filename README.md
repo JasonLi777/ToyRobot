@@ -59,3 +59,8 @@ There is a ready-to-use application in ToyRobot\example, ToyRobot.exe. Click Sta
 - Open ToyRobot.sln with Visual Studio 2019.
 - Build Solution.
 
+## Unit test
+- Using Google test for the project.
+- Active project ToyRobotTest to debug.
+- Test code locate at ToyRobot\test
+- There is a runnable exe in ToyRobot\example. Execute UnitTest.bat to see results.
