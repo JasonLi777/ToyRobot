@@ -13,10 +13,10 @@ TEST(StringHelperTest, Split_Empty)
 
 TEST(StringHelperTest, Split_Valid)
 {
-    std::string str = "123 abc efg";
-    std::vector<std::string> expected1 = {"123", "abc", "efg"};
-    std::vector<std::string> expected2 = { "123 ", "bc efg" };
-    std::vector<std::string> expected3 = { "123 a", " efg" };
+    std::string str = "123 abc ebfg";
+    std::vector<std::string> expected1 = {"123", "abc", "ebfg"};
+    std::vector<std::string> expected2 = { "123 ", "bc ebfg" };
+    std::vector<std::string> expected3 = { "123 a", " ebfg" };
 
     EXPECT_EQ(expected1, StringHelper::split(str, " "));
     EXPECT_EQ(expected2, StringHelper::split(str, "a"));

@@ -11,10 +11,21 @@ std::vector<std::string> split(const std::string &str, const std::string& sep)
         return strings;
     }
 
-    std::size_t posFront = str.find_first_not_of(sep);
-    std::size_t posAfter = str.find_first_of(sep, posFront);
+    std::size_t posFront = 0;
+    std::size_t posAfter = str.find(sep, posFront);
 
     while(posFront != std::string::npos) {
+
+        if (posFront == posAfter) {
+            posFront = posAfter + sep.length();
+            posAfter = str.find(sep, posFront);
+
+            if (posAfter == std::string::npos) {
+                break;
+            }
+
+            continue;
+        }
 
         std::string subStr = str.substr(posFront, posAfter - posFront);
         strings.push_back(subStr);
@@ -24,8 +35,8 @@ std::vector<std::string> split(const std::string &str, const std::string& sep)
             break;
         }
 
-        posFront = str.find_first_not_of(sep, posAfter + sep.length());
-        posAfter = str.find_first_of(sep, posFront);
+        posFront = posAfter + sep.length();
+        posAfter = str.find(sep, posFront);
     }
 
     return strings;
