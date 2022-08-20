@@ -11,16 +11,12 @@ Position::Position(const int x, const int y) :
 {
 }
 
-Position::~Position()
-{
-}
-
 bool Position::operator==(const Position &position) const
 {
-    return m_x == position.x() && m_y == position.y();
+    return m_x == position.getX() && m_y == position.getY();
 }
 
-int Position::x() const
+int Position::getX() const
 {
     return m_x;
 }
@@ -30,7 +26,7 @@ void Position::setX(const int x)
     m_x = x;
 }
 
-int Position::y() const
+int Position::getY() const
 {
     return m_y;
 }

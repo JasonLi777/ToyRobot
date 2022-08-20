@@ -1,57 +1,42 @@
 #include "MoveCommand.h"
-#include "..\ToyRobot\ToyRobotStatus.h"
+#include "../ToyRobot/ToyRobot.h"
 
-MoveCommand::MoveCommand() :
-    //default 1 step, maybe can move multiple step later
-    m_step(1)
+bool MoveCommand::execute(ToyRobot *robot)
 {
-}
-
-MoveCommand::~MoveCommand()
-{
-}
-
-ToyRobotStatus MoveCommand::execute(const ToyRobotStatus& oldStatus)
-{
-    //if old status is invalid, means toy robot or table not init properly or robot is not on the table
-    //so do nothing just return old status
-    if(m_step <= 0 || !oldStatus.isValid()) {
-        return oldStatus;
+    if(!robot || !robot->isReady())
+    {
+        return false;
     }
 
-    Position newPosition = oldStatus.position();
+    auto position = robot->getPosition();
 
-    //calculate new position by direction
-    switch (oldStatus.direction().value()) {
-    case Direction::NORTH: {
-        newPosition.setY(newPosition.y() + m_step);
+    switch (robot->getDirection().value())
+    {
+    case Direction::NORTH:
+    {
+        position.setY(position.getY() + 1);
         break;
     }
-    case Direction::WEST: {
-        newPosition.setX(newPosition.x() - m_step);
+    case Direction::WEST:
+    {
+        position.setX(position.getX() - 1);
         break;
     }
-    case Direction::SOUTH: {
-        newPosition.setY(newPosition.y() - m_step);
+    case Direction::SOUTH:
+    {
+        position.setY(position.getY() - 1);
         break;
     }
-    case Direction::EAST: {
-        newPosition.setX(newPosition.x() + m_step);
+    case Direction::EAST:
+    {
+        position.setX(position.getX() + 1);
         break;
     }
-    default: {
+    default:
+    {
         break;
     }
     }
 
-    ToyRobotStatus newStatus = oldStatus;
-    newStatus.setPosition(newPosition);
-
-    //verify new status, include whether new status positon on table top
-    //if is not valid, just ignor this command and use old status
-    if(!newStatus.isValid()) {
-        return oldStatus;
-    }
-
-    return newStatus;
+    return robot->setPosition(position);
 }

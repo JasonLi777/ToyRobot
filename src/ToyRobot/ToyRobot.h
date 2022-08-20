@@ -2,23 +2,35 @@
 #define TOYROBOT_H
 
 #include <memory>
-#include "ToyRobotStatus.h"
+#include "../Util/Direction.h"
+#include "../Util/Position.h"
 
 class AbstractCommand;
+class TableTop;
 
 class ToyRobot
 {
 public:
-    ToyRobot();
-    ~ToyRobot();
+    ToyRobot(const std::shared_ptr<TableTop>& tableTop);
+    ~ToyRobot() = default;
 
-    //execute command and update status
-    void executeCommand(std::shared_ptr<AbstractCommand> command);
+    bool executeCommand(const std::shared_ptr<AbstractCommand>& command);
 
-    ToyRobotStatus status() const;
+    bool place(const Position& position, const Direction& direction);
+
+    bool setPosition(const Position& position);
+    Position getPosition() const;
+
+    bool setDirection(const Direction& direction);
+    Direction getDirection() const;
+
+    bool isReady() const;
 
 private:
-    ToyRobotStatus m_status;
+    std::shared_ptr<TableTop> m_tableTop;
+    Position m_position;
+    Direction m_direction;
+    bool m_ready;
 };
 
 #endif // TOYROBOT_H

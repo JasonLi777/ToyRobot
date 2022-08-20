@@ -6,6 +6,7 @@
 class Direction
 {
 public:
+    //use vector save direction and save a index
     enum DirectionEnum {
         INVALID = 0,
         NORTH,
@@ -25,7 +26,7 @@ public:
 public:
     Direction();
     Direction(const DirectionEnum direction);
-    ~Direction();
+    ~Direction() = default;
 
     bool operator==(const Direction& direction) const;
 
@@ -36,7 +37,6 @@ public:
 
     bool isValid() const;
 
-    //turn left or right
     bool turn(const TurnEnum turn);
 
 private:

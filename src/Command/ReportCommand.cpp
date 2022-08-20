@@ -1,5 +1,5 @@
 #include "ReportCommand.h"
-#include "..\ToyRobot\ToyRobotStatus.h"
+#include "../ToyRobot/ToyRobot.h"
 #include <iostream>
 #include <sstream>
 
@@ -8,29 +8,21 @@ ReportCommand::ReportCommand() :
 {
 }
 
-ReportCommand::~ReportCommand()
+bool ReportCommand::execute(ToyRobot *robot)
 {
-}
-
-ToyRobotStatus ReportCommand::execute(const ToyRobotStatus& oldStatus)
-{
-    //if old status is invalid, means toy robot or table not init properly or robot is not on the table
-    //so do nothing just return old status
-    if(!oldStatus.isValid()) {
-        return oldStatus;
+    if(!robot || !robot->isReady())
+    {
+        return false;
     }
 
-    Position position = oldStatus.position();
+    auto position = robot->getPosition();
+    auto direction = robot->getDirection();
 
-    std::ostringstream stream;
-    stream << position.x() << "," << position.y() << "," << oldStatus.direction().toString();
-
-    //keep current report
-    m_lastReport = stream.str();
+    m_lastReport = std::to_string(position.getX()) + "," + std::to_string(position.getY()) + "," + direction.toString();
 
     std::cout << m_lastReport << std::endl;
 
-    return oldStatus;
+    return true;
 }
 
 std::string ReportCommand::getLastReport() const

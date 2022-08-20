@@ -6,14 +6,14 @@ class Position
 public:
     Position();
     Position(const int x, const int y);
-    ~Position();
+    ~Position() = default;
 
     bool operator==(const Position& position) const;
 
-    int x() const;
+    int getX() const;
     void setX(const int x);
 
-    int y() const;
+    int getY() const;
     void setY(const int y);
 
     bool isValid() const;

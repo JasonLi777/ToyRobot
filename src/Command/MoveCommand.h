@@ -6,13 +6,10 @@
 class MoveCommand : public AbstractCommand
 {
 public:
-    MoveCommand();
-    virtual ~MoveCommand();
+    MoveCommand() = default;
+    virtual ~MoveCommand() = default;
 
-    virtual ToyRobotStatus execute(const ToyRobotStatus& oldStatus) override;
-
-private:
-    int m_step;
+    virtual bool execute(ToyRobot* robot) override;
 };
 
 #endif // MOVECOMMAND_H

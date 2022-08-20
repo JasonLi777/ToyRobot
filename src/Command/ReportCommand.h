@@ -8,9 +8,9 @@ class ReportCommand : public AbstractCommand
 {
 public:
     ReportCommand();
-    virtual ~ReportCommand();
+    virtual ~ReportCommand() = default;
 
-    virtual ToyRobotStatus execute(const ToyRobotStatus& oldStatus) override;
+    virtual bool execute(ToyRobot* robot) override;
 
     std::string getLastReport() const;
 

@@ -1,46 +1,17 @@
 #include "PlaceCommand.h"
-#include "..\ToyRobot\ToyRobotStatus.h"
+#include "../ToyRobot/ToyRobot.h"
 
-PlaceCommand::PlaceCommand(std::shared_ptr<TableTop> tableTop,
-                           const Position &position,
-                           const Direction &direction) :
-    m_tableTop(tableTop),
-    m_position(position),
-    m_direction(direction)
+PlaceCommand::PlaceCommand(const Position &position, const Direction &direction)
+    : m_position(position), m_direction(direction)
 {
 }
 
-PlaceCommand::~PlaceCommand()
+bool PlaceCommand::execute(ToyRobot *robot)
 {
-}
-
-ToyRobotStatus PlaceCommand::execute(const ToyRobotStatus& oldStatus)
-{
-    ToyRobotStatus newStatus = ToyRobotStatus();
-    newStatus.setTableTop(m_tableTop);
-    newStatus.setPosition(m_position);
-    newStatus.setDirection(m_direction);
-
-    //if new status valid(also new position on the table) then use new status
-    if(newStatus.isValid()) {
-        return newStatus;
+    if(!robot)
+    {
+        return false;
     }
 
-    //if new status is not valid then use old status
-    return oldStatus;
-}
-
-std::shared_ptr<TableTop> PlaceCommand::tableTop() const
-{
-    return m_tableTop;
-}
-
-Position PlaceCommand::position() const
-{
-    return m_position;
-}
-
-Direction PlaceCommand::direction() const
-{
-    return m_direction;
+    return robot->place(m_position, m_direction);
 }

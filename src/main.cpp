@@ -2,16 +2,17 @@
 #include <string>
 #include "ToyRobot\ToyRobot.h"
 #include "TableTop\TableTop.h"
-#include "ToyRobot\ToyRobotController.h"
-#include "Util/StringHelper.h"
 #include <fstream>
+#include "Command/InputParser.h"
+
+//void processArc(arc, argv)
 
 int main(int argc, char *argv[])
 {
     try {
-        std::shared_ptr<ToyRobot> toyRobot = std::make_shared<ToyRobot>();
-        std::shared_ptr<TableTop> tableTop = std::make_shared<TableTop>();
-        std::shared_ptr<ToyRobotController> toyRobotController = std::make_shared<ToyRobotController>(toyRobot, tableTop);
+        std::shared_ptr<TableTop> tableTop = std::make_shared<TableTop>(5, 5);
+        std::shared_ptr<ToyRobot> toyRobot = std::make_shared<ToyRobot>(tableTop);
+        //        std::shared_ptr<ToyRobotController> toyRobotController = std::make_shared<ToyRobotController>(toyRobot, tableTop);
 
         std::cout << "Command:" << std::endl;
         std::cout << "   PLACE X,Y,F" << std::endl;
@@ -19,32 +20,45 @@ int main(int argc, char *argv[])
         std::cout << "   LEFT" << std::endl;
         std::cout << "   RIGHT" << std::endl;
         std::cout << "   REPORT" << std::endl;
-        std::cout << "Please enter the above commands to control the toy robot, enter 'QUIT' to exit." << std::endl << std::endl;
+        std::cout << "Please enter the above commands to control the toy robot." << std::endl << std::endl;
 
+        //make it expandable
+        // class AbstractInput { std::istream getInputStream() }
+        // class ConsoleInput {  std::istream getInputStream() { return std::cin } }
+        // class FileInput {
+        // //open file
+        // std::ifstream m_file;
+        // std::istream getInputStream() { return std::ifstream } }
         //use input
-        if(argc == 1) {
+        //unique_ptr<AbstractInput> p;
+        if(argc == 1) {// cerate function for process argc action,processArc
+            //p = new ConsoleInput;
 
             //start receive command from user and use controller to control toy robot
             while (true) {
-                std::string command;
-                std::getline(std::cin, command);
+                std::string input;
+                std::getline(std::cin, input);
 
-                if(StringHelper::toUpper(command) == "QUIT") {
-                    break;
+                //                if(StringHelper::toUpper(command) == "QUIT") {// create quit cmd.  exit(0);
+                //                    break;
+                //                }
+
+                auto command = InputParser::getInstance()->parse(input);
+                if(command) {
+                    (void)toyRobot->executeCommand(command.value());
                 }
-
-                toyRobotController->execute(command);
             }
         }
         //read from file
-        else if(argc == 2) {
+        else if(argc == 2) {//processArc
+            //p = new FileInput;
 
             std::ifstream infile(argv[1]);
             if (infile.is_open()) {
 
                 std::string command;
                 while (std::getline(infile, command)) {
-                    toyRobotController->execute(command);
+                    //                    toyRobotController->execute(command);
                 }
 
                 infile.close();
@@ -54,7 +68,11 @@ int main(int argc, char *argv[])
             return 1;
         }
 
+        //std::istream = p.getInputStream()
+
+
     }  catch (...) {
+        // try file open error
         std::cout << "Something wrong happened!" << std::endl;
         return 1;
     }

@@ -8,11 +8,11 @@ class RotateCommand : public AbstractCommand
 {
 public:
     RotateCommand(const Direction::TurnEnum direction);
-    virtual ~RotateCommand();
+    virtual ~RotateCommand() = default;
 
-    virtual ToyRobotStatus execute(const ToyRobotStatus& oldStatus) override;
+    virtual bool execute(ToyRobot* robot) override;
 
-    Direction::TurnEnum direction() const;
+    Direction::TurnEnum getDirection() const;
 
 private:
     Direction::TurnEnum m_direction;

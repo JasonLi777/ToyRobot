@@ -6,11 +6,11 @@ class Position;
 class TableTop
 {
 public:
-    TableTop(const int width = 5, const int length = 5);
-    ~TableTop();
+    TableTop(const int width, const int length);
+    ~TableTop() = default;
 
-    int width() const;
-    int length() const;
+    int getWidth() const;
+    int getLength() const;
 
     bool isValid() const;
     bool isOnTheTable(const Position& position) const;
