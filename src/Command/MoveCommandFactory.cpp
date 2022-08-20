@@ -2,6 +2,9 @@
 #include "CommandFactoryRegister.h"
 #include "MoveCommand.h"
 
+namespace ToyRobot
+{
+
 std::optional<std::shared_ptr<AbstractCommand> > MoveCommandFactory::build(const std::string &command) const
 {
     if(command == "MOVE")
@@ -13,3 +16,5 @@ std::optional<std::shared_ptr<AbstractCommand> > MoveCommandFactory::build(const
 }
 
 REGISTER_COMMAND_FACTORY(MoveCommandFactory);
+
+}

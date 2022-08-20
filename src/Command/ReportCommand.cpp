@@ -3,6 +3,9 @@
 #include <iostream>
 #include <sstream>
 
+namespace ToyRobot
+{
+
 ReportCommand::ReportCommand() :
     m_lastReport("")
 {
@@ -28,4 +31,6 @@ bool ReportCommand::execute(ToyRobot *robot)
 std::string ReportCommand::getLastReport() const
 {
     return m_lastReport;
+}
+
 }

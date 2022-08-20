@@ -2,6 +2,9 @@
 #include "CommandFactoryRegister.h"
 #include "ReportCommand.h"
 
+namespace ToyRobot
+{
+
 std::optional<std::shared_ptr<AbstractCommand> > ReportCommandFactory::build(const std::string &command) const
 {
     if(command == "REPORT")
@@ -12,3 +15,5 @@ std::optional<std::shared_ptr<AbstractCommand> > ReportCommandFactory::build(con
 }
 
 REGISTER_COMMAND_FACTORY(ReportCommandFactory);
+
+}

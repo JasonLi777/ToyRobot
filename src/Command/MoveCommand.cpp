@@ -1,6 +1,9 @@
 #include "MoveCommand.h"
 #include "../ToyRobot/ToyRobot.h"
 
+namespace ToyRobot
+{
+
 bool MoveCommand::execute(ToyRobot *robot)
 {
     if(!robot || !robot->isReady())
@@ -39,4 +42,6 @@ bool MoveCommand::execute(ToyRobot *robot)
     }
 
     return robot->setPosition(position);
+}
+
 }

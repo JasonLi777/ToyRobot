@@ -1,5 +1,8 @@
 #include "Position.h"
 
+namespace ToyRobot
+{
+
 Position::Position():
     Position(-1, -1)
 {
@@ -41,3 +44,4 @@ bool Position::isValid() const
     return m_x >= 0 && m_y >= 0;
 }
 
+}

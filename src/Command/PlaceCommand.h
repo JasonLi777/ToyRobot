@@ -6,6 +6,9 @@
 #include "..\Util\Position.h"
 #include "..\Util\Direction.h"
 
+namespace ToyRobot
+{
+
 class TableTop;
 
 class PlaceCommand : public AbstractCommand
@@ -20,5 +23,7 @@ private:
     Position m_position;
     Direction m_direction;
 };
+
+}
 
 #endif // PLACECOMMAND_H

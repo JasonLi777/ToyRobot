@@ -3,6 +3,9 @@
 
 #include "AbstractCommandFactory.h"
 
+namespace ToyRobot
+{
+
 class PlaceCommandFactory : public AbstractCommandFactory
 {
 public:
@@ -11,5 +14,7 @@ public:
 
     virtual std::optional<std::shared_ptr<AbstractCommand>> build(const std::string& command) const override;
 };
+
+}
 
 #endif // PLACECOMMANDFACTORY_H

@@ -2,6 +2,9 @@
 #include "AbstractCommandFactory.h"
 #include <iostream>
 
+namespace ToyRobot
+{
+
 InputParser *InputParser::getInstance()
 {
     static InputParser instance;
@@ -38,3 +41,4 @@ void InputParser::registerCommandFactory(std::shared_ptr<AbstractCommandFactory>
     }
 }
 
+}

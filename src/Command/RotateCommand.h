@@ -4,6 +4,9 @@
 #include "AbstractCommand.h"
 #include "..\Util\Direction.h"
 
+namespace ToyRobot
+{
+
 class RotateCommand : public AbstractCommand
 {
 public:
@@ -17,5 +20,7 @@ public:
 private:
     Direction::TurnEnum m_direction;
 };
+
+}
 
 #endif // ROTATECOMMAND_H

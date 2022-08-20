@@ -2,6 +2,9 @@
 #include "../TableTop/TableTop.h"
 #include "..\Command\AbstractCommand.h"
 
+namespace ToyRobot
+{
+
 ToyRobot::ToyRobot(const std::shared_ptr<TableTop> &tableTop) :
     m_tableTop(std::move(tableTop)),
     m_position(Position()),
@@ -71,4 +74,6 @@ Direction ToyRobot::getDirection() const
 bool ToyRobot::isReady() const
 {
     return m_ready;
+}
+
 }

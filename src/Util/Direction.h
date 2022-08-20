@@ -3,6 +3,9 @@
 
 #include <string>
 
+namespace ToyRobot
+{
+
 class Direction
 {
 public:
@@ -42,5 +45,7 @@ public:
 private:
     DirectionEnum m_direction;
 };
+
+}
 
 #endif // DIRECTION_H

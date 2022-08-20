@@ -5,6 +5,9 @@
 #include "../Util/Position.h"
 #include <regex>
 
+namespace ToyRobot
+{
+
 std::optional<std::shared_ptr<AbstractCommand> > PlaceCommandFactory::build(const std::string &command) const
 {
     std::smatch matchResult;
@@ -23,3 +26,5 @@ std::optional<std::shared_ptr<AbstractCommand> > PlaceCommandFactory::build(cons
 }
 
 REGISTER_COMMAND_FACTORY(PlaceCommandFactory);
+
+}

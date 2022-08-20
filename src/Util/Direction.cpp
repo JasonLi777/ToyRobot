@@ -1,5 +1,8 @@
 #include "Direction.h"
 
+namespace ToyRobot
+{
+
 Direction Direction::fromString(const std::string &direction)
 {
     if(direction == "NORTH")
@@ -117,4 +120,6 @@ bool Direction::turn(const TurnEnum turn)
     }
 
     return true;
+}
+
 }

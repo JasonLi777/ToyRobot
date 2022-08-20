@@ -3,6 +3,9 @@
 
 #include "AbstractCommand.h"
 
+namespace ToyRobot
+{
+
 class MoveCommand : public AbstractCommand
 {
 public:
@@ -11,5 +14,7 @@ public:
 
     virtual bool execute(ToyRobot* robot) override;
 };
+
+}
 
 #endif // MOVECOMMAND_H

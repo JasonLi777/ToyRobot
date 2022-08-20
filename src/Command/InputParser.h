@@ -6,6 +6,9 @@
 #include <memory>
 #include <optional>
 
+namespace ToyRobot
+{
+
 class AbstractCommand;
 class AbstractCommandFactory;
 
@@ -26,6 +29,6 @@ private:
     std::vector<std::shared_ptr<AbstractCommandFactory>> m_parserContainer;
 };
 
-
+}
 
 #endif // INPUTPARSERPROVIDER_H

@@ -1,6 +1,9 @@
 #ifndef POSITION_H
 #define POSITION_H
 
+namespace ToyRobot
+{
+
 class Position
 {
 public:
@@ -22,5 +25,7 @@ private:
     int m_x;
     int m_y;
 };
+
+}
 
 #endif // POSITION_H

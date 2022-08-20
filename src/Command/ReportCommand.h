@@ -4,6 +4,9 @@
 #include "AbstractCommand.h"
 #include <string>
 
+namespace ToyRobot
+{
+
 class ReportCommand : public AbstractCommand
 {
 public:
@@ -17,5 +20,7 @@ public:
 private:
     std::string m_lastReport;
 };
+
+}
 
 #endif // REPORTCOMMAND_H

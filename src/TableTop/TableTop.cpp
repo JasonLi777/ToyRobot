@@ -1,6 +1,9 @@
 #include "TableTop.h"
 #include "..\Util\Position.h"
 
+namespace ToyRobot
+{
+
 TableTop::TableTop(const int width, const int length) :
     m_width(width),
     m_length(length)
@@ -30,5 +33,7 @@ bool TableTop::isOnTheTable(const Position &position) const
     }
 
     return position.getX() >= 0 && position.getX() < m_width && position.getY() >= 0 && position.getY() < m_length;
+}
+
 }
 

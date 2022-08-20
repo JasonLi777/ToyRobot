@@ -5,6 +5,9 @@
 #include <memory>
 #include <string>
 
+namespace ToyRobot
+{
+
 class AbstractCommand;
 
 class AbstractCommandFactory
@@ -15,5 +18,7 @@ public:
 
     virtual std::optional<std::shared_ptr<AbstractCommand>> build(const std::string& command) const = 0;
 };
+
+}
 
 #endif // ABSTRACTCOMMANDFACTORY_H

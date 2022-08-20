@@ -5,6 +5,9 @@
 #include "../Util/Direction.h"
 #include "../Util/Position.h"
 
+namespace ToyRobot
+{
+
 class AbstractCommand;
 class TableTop;
 
@@ -32,5 +35,7 @@ private:
     Direction m_direction;
     bool m_ready;
 };
+
+}
 
 #endif // TOYROBOT_H

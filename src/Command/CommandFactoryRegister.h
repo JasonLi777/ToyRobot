@@ -3,6 +3,9 @@
 
 #include <memory>
 
+namespace ToyRobot
+{
+
 class AbstractCommandFactory;
 
 class CommandFactoryRegister
@@ -14,5 +17,7 @@ public:
 
 #define REGISTER_COMMAND_FACTORY(className)                                                                 \
     static CommandFactoryRegister s_commandFactoryRegister##className(std::make_shared<className>());       \
+
+}
 
 #endif // COMMANDFACTORYREGISTER_H

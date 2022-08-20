@@ -10,9 +10,8 @@
 int main(int argc, char *argv[])
 {
     try {
-        std::shared_ptr<TableTop> tableTop = std::make_shared<TableTop>(5, 5);
-        std::shared_ptr<ToyRobot> toyRobot = std::make_shared<ToyRobot>(tableTop);
-        //        std::shared_ptr<ToyRobotController> toyRobotController = std::make_shared<ToyRobotController>(toyRobot, tableTop);
+        std::shared_ptr<ToyRobot::TableTop> tableTop = std::make_shared<ToyRobot::TableTop>(5, 5);
+        std::shared_ptr<ToyRobot::ToyRobot> toyRobot = std::make_shared<ToyRobot::ToyRobot>(tableTop);
 
         std::cout << "Command:" << std::endl;
         std::cout << "   PLACE X,Y,F" << std::endl;
@@ -41,9 +40,9 @@ int main(int argc, char *argv[])
 
                 //                if(StringHelper::toUpper(command) == "QUIT") {// create quit cmd.  exit(0);
                 //                    break;
-                //                }
+                //                          }
 
-                auto command = InputParser::getInstance()->parse(input);
+                auto command = ToyRobot::InputParser::getInstance()->parse(input);
                 if(command) {
                     (void)toyRobot->executeCommand(command.value());
                 }

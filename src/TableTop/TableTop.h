@@ -1,6 +1,9 @@
 #ifndef TABLETOP_H
 #define TABLETOP_H
 
+namespace ToyRobot
+{
+
 class Position;
 
 class TableTop
@@ -19,5 +22,7 @@ private:
     int m_width;
     int m_length;
 };
+
+}
 
 #endif // TABLETOP_H
