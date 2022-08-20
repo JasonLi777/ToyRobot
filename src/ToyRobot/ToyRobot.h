@@ -17,8 +17,6 @@ public:
     ToyRobot(const std::shared_ptr<TableTop>& tableTop);
     ~ToyRobot() = default;
 
-    bool executeCommand(const std::shared_ptr<AbstractCommand>& command);
-
     bool place(const Position& position, const Direction& direction);
 
     bool setPosition(const Position& position);

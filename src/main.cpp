@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
-#include "ToyRobot\ToyRobot.h"
-#include "TableTop\TableTop.h"
+#include "ToyRobot/ToyRobot.h"
+#include "TableTop/TableTop.h"
 #include "Command/InputParser.h"
-#include "Input/ConsoleInputHandler.h"
-#include "Input/FileInputHandler.h"
+#include "InputHandler/ConsoleInputHandler.h"
+#include "InputHandler/FileInputHandler.h"
+#include "Command/AbstractCommand.h"
 
 std::unique_ptr<ToyRobot::AbstractInputHandler> createInputHandler(int argc, char *argv[])
 {
@@ -46,9 +47,9 @@ int main(int argc, char *argv[])
         while(inputHandler->getLine(input))
         {
             auto command = ToyRobot::InputParser::getInstance()->parse(input);
-            if(command)
+            if(command && command.value())
             {
-                (void)toyRobot->executeCommand(command.value());
+                command.value()->execute(toyRobot.get());
             }
         }
     }

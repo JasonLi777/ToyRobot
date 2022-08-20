@@ -3,8 +3,8 @@
 
 #include <memory>
 #include "AbstractCommand.h"
-#include "..\Util\Position.h"
-#include "..\Util\Direction.h"
+#include "../Util/Position.h"
+#include "../Util/Direction.h"
 
 namespace ToyRobot
 {

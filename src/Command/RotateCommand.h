@@ -2,7 +2,7 @@
 #define ROTATECOMMAND_H
 
 #include "AbstractCommand.h"
-#include "..\Util\Direction.h"
+#include "../Util/Direction.h"
 
 namespace ToyRobot
 {

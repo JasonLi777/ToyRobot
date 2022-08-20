@@ -1,6 +1,5 @@
 #include "ToyRobot.h"
 #include "../TableTop/TableTop.h"
-#include "..\Command\AbstractCommand.h"
 
 namespace ToyRobot
 {
@@ -11,16 +10,6 @@ ToyRobot::ToyRobot(const std::shared_ptr<TableTop> &tableTop) :
     m_direction(Direction()),
     m_ready(false)
 {
-}
-
-bool ToyRobot::executeCommand(const std::shared_ptr<AbstractCommand> &command)
-{
-    if(!command)
-    {
-        return false;
-    }
-
-    return command->execute(this);
 }
 
 bool ToyRobot::place(const Position &position, const Direction &direction)

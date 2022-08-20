@@ -19,33 +19,44 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Command\AbstractCommand.cpp" />
+    <ClCompile Include="src\Command\CommandFactoryRegister.cpp" />
+    <ClCompile Include="src\Command\InputParser.cpp" />
     <ClCompile Include="src\Command\MoveCommand.cpp" />
+    <ClCompile Include="src\Command\MoveCommandFactory.cpp" />
     <ClCompile Include="src\Command\PlaceCommand.cpp" />
+    <ClCompile Include="src\Command\PlaceCommandFactory.cpp" />
     <ClCompile Include="src\Command\ReportCommand.cpp" />
+    <ClCompile Include="src\Command\ReportCommandFactory.cpp" />
     <ClCompile Include="src\Command\RotateCommand.cpp" />
+    <ClCompile Include="src\Command\RotateCommandFactory.cpp" />
+    <ClCompile Include="src\InputHandler\ConsoleInputHandler.cpp" />
+    <ClCompile Include="src\InputHandler\FileInputHandler.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\TableTop\TableTop.cpp" />
     <ClCompile Include="src\ToyRobot\ToyRobot.cpp" />
-    <ClCompile Include="src\ToyRobot\ToyRobotController.cpp" />
-    <ClCompile Include="src\ToyRobot\ToyRobotStatus.cpp" />
     <ClCompile Include="src\Util\Direction.cpp" />
     <ClCompile Include="src\Util\Position.cpp" />
-    <ClCompile Include="src\Util\StringHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Command\AbstractCommand.h" />
+    <ClInclude Include="src\Command\AbstractCommandFactory.h" />
+    <ClInclude Include="src\Command\CommandFactoryRegister.h" />
+    <ClInclude Include="src\Command\InputParser.h" />
     <ClInclude Include="src\Command\MoveCommand.h" />
+    <ClInclude Include="src\Command\MoveCommandFactory.h" />
     <ClInclude Include="src\Command\PlaceCommand.h" />
+    <ClInclude Include="src\Command\PlaceCommandFactory.h" />
     <ClInclude Include="src\Command\ReportCommand.h" />
+    <ClInclude Include="src\Command\ReportCommandFactory.h" />
     <ClInclude Include="src\Command\RotateCommand.h" />
+    <ClInclude Include="src\Command\RotateCommandFactory.h" />
+    <ClInclude Include="src\InputHandler\AbstractInputHandler.h" />
+    <ClInclude Include="src\InputHandler\ConsoleInputHandler.h" />
+    <ClInclude Include="src\InputHandler\FileInputHandler.h" />
     <ClInclude Include="src\TableTop\TableTop.h" />
     <ClInclude Include="src\ToyRobot\ToyRobot.h" />
-    <ClInclude Include="src\ToyRobot\ToyRobotController.h" />
-    <ClInclude Include="src\ToyRobot\ToyRobotStatus.h" />
     <ClInclude Include="src\Util\Direction.h" />
     <ClInclude Include="src\Util\Position.h" />
-    <ClInclude Include="src\Util\StringHelper.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -145,6 +156,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
