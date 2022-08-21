@@ -20,7 +20,7 @@ std::optional<std::shared_ptr<AbstractCommand> > PlaceCommandFactory::build(cons
     }
 
     auto position = Position(std::stoi(matchResult[1].str()), std::stoi(matchResult[2].str()));
-    auto direction = Direction::fromString(matchResult[3].str());
+    auto direction = Direction(matchResult[3].str());
 
     return std::make_shared<PlaceCommand>(position, direction);
 }

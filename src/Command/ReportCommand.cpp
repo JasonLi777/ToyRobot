@@ -7,7 +7,7 @@ namespace ToyRobot
 {
 
 ReportCommand::ReportCommand() :
-    m_lastReport("")
+    m_lastReport({})
 {
 }
 

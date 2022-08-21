@@ -3,85 +3,36 @@
 namespace ToyRobot
 {
 
-Direction Direction::fromString(const std::string &direction)
-{
-    if(direction == "NORTH")
-    {
-        return Direction(NORTH);
-    }
-    else if(direction == "WEST")
-    {
-        return Direction(WEST);
-    }
-    else if(direction == "SOUTH")
-    {
-        return Direction(SOUTH);
-    }
-    else if(direction == "EAST")
-    {
-        return Direction(EAST);
-    }
-    else
-    {
-        return Direction();
-    }
-}
+const std::vector<std::string> Direction::m_allDirection = {"NORTH", "EAST", "SOUTH", "WEST"};
 
-Direction::Direction() : Direction(INVALID)
+Direction::Direction() :
+    m_index(-1)
 {
 }
 
-Direction::Direction(const Direction::DirectionEnum direction) :
-    m_direction(direction)
+Direction::Direction(const std::string &direction) : Direction()
 {
-
+    auto itr = std::find(m_allDirection.cbegin(), m_allDirection.cend(), direction);
+    m_index = (itr == m_allDirection.cend() ? -1 : std::distance(m_allDirection.cbegin(), itr));
 }
 
 bool Direction::operator==(const Direction &direction) const
 {
-    return m_direction == direction.value();
-}
-
-Direction::DirectionEnum Direction::value() const
-{
-    return m_direction;
-}
-
-void Direction::setValue(const DirectionEnum dir)
-{
-    m_direction = dir;
+    return m_index == direction.m_index;
 }
 
 std::string Direction::toString() const
 {
-    switch (m_direction)
+    if(!isValid())
     {
-    case NORTH:
-    {
-        return "NORTH";
+        return {};
     }
-    case WEST:
-    {
-        return "WEST";
-    }
-    case SOUTH:
-    {
-        return "SOUTH";
-    }
-    case EAST:
-    {
-        return "EAST";
-    }
-    default:
-    {
-        return "INVALID";
-    }
-    }
+    return m_allDirection[m_index];
 }
 
 bool Direction::isValid() const
 {
-    return m_direction != INVALID;
+    return m_index >= 0 && m_index < m_allDirection.size();
 }
 
 bool Direction::turn(const TurnEnum turn)
@@ -91,32 +42,16 @@ bool Direction::turn(const TurnEnum turn)
         return false;
     }
 
-    switch (m_direction)
+    m_index += (turn == LEFT ? -1 : 1);
+
+    if(m_index == -1)
     {
-    case NORTH:
-    {
-        m_direction = (turn == LEFT ? WEST : EAST);
-        break;
+        m_index = (m_allDirection.size() - 1);
     }
-    case WEST:
+
+    if(m_index == m_allDirection.size())
     {
-        m_direction = (turn == LEFT ? SOUTH : NORTH);
-        break;
-    }
-    case SOUTH:
-    {
-        m_direction = (turn == LEFT ? EAST : WEST);
-        break;
-    }
-    case EAST:
-    {
-        m_direction = (turn == LEFT ? NORTH : SOUTH);
-        break;
-    }
-    default:
-    {
-        return false;
-    }
+        m_index = 0;
     }
 
     return true;

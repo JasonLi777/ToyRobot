@@ -4,6 +4,26 @@
 namespace ToyRobot
 {
 
+const std::unordered_map<std::string, std::function<void(Position& position)>> MoveCommand::m_moveFuncMap =
+{
+    {
+        "NORTH", 
+        [](Position& position) { position.setY(position.getY() + 1); }
+    },
+    {
+        "WEST",
+        [](Position& position) { position.setX(position.getX() - 1); }
+    },
+    {
+        "SOUTH",
+        [](Position& position) { position.setY(position.getY() - 1); }
+    },
+    {
+        "EAST",
+        [](Position& position) { position.setX(position.getX() + 1); }
+    },
+};
+
 bool MoveCommand::execute(ToyRobot *robot)
 {
     if(!robot || !robot->isReady())
@@ -13,33 +33,13 @@ bool MoveCommand::execute(ToyRobot *robot)
 
     auto position = robot->getPosition();
 
-    switch (robot->getDirection().value())
+    auto itr = m_moveFuncMap.find(robot->getDirection().toString());
+    if(itr == m_moveFuncMap.end())
     {
-    case Direction::NORTH:
-    {
-        position.setY(position.getY() + 1);
-        break;
+        return false;
     }
-    case Direction::WEST:
-    {
-        position.setX(position.getX() - 1);
-        break;
-    }
-    case Direction::SOUTH:
-    {
-        position.setY(position.getY() - 1);
-        break;
-    }
-    case Direction::EAST:
-    {
-        position.setX(position.getX() + 1);
-        break;
-    }
-    default:
-    {
-        break;
-    }
-    }
+
+    itr->second(position);
 
     return robot->setPosition(position);
 }

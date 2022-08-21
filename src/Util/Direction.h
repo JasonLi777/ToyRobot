@@ -2,6 +2,7 @@
 #define DIRECTION_H
 
 #include <string>
+#include <vector>
 
 namespace ToyRobot
 {
@@ -9,14 +10,6 @@ namespace ToyRobot
 class Direction
 {
 public:
-    //use vector save direction and save a index
-    enum DirectionEnum {
-        INVALID = 0,
-        NORTH,
-        EAST,
-        SOUTH,
-        WEST,
-    };
 
     enum TurnEnum {
         LEFT = 1,
@@ -24,26 +17,22 @@ public:
     };
 
 public:
-    static Direction fromString(const std::string& direction);
-
-public:
     Direction();
-    Direction(const DirectionEnum direction);
+    Direction(const std::string& direction);
     ~Direction() = default;
 
     bool operator==(const Direction& direction) const;
-
-    DirectionEnum value() const;
-    void setValue(const DirectionEnum direction);
-
-    std::string toString() const;
 
     bool isValid() const;
 
     bool turn(const TurnEnum turn);
 
+    std::string toString() const;
+
 private:
-    DirectionEnum m_direction;
+    int m_index;
+
+    static const std::vector<std::string> m_allDirection;
 };
 
 }
