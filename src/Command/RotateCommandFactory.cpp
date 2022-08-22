@@ -9,11 +9,11 @@ std::optional<std::shared_ptr<AbstractCommand> > RotateCommandFactory::build(con
 {
     if(command == "LEFT")
     {
-        return std::make_shared<RotateCommand>(Direction::LEFT);
+        return std::make_shared<RotateCommand>(Direction::TurnDirection::LEFT);
     }
-    else if (command == "RIGHT")
+    else if(command == "RIGHT")
     {
-        return std::make_shared<RotateCommand>(Direction::RIGHT);
+        return std::make_shared<RotateCommand>(Direction::TurnDirection::RIGHT);
     }
     else
     {

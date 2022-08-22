@@ -14,6 +14,10 @@ std::optional<std::shared_ptr<AbstractCommand> > PlaceCommandFactory::build(cons
 
     bool isMatched = std::regex_match(command, matchResult, std::regex("PLACE ([0-4]),([0-4]),(NORTH|WEST|SOUTH|EAST)"));
 
+    //matchResult[0]: whole string
+    //matchResult[1]: x
+    //matchResult[2]: y
+    //matchResult[3]: direction
     if(!isMatched || matchResult.size() != 4)
     {
         return {};

@@ -26,7 +26,7 @@ const std::unordered_map<std::string, std::function<void(Position& position)>> M
 
 bool MoveCommand::execute(ToyRobot *robot)
 {
-    if(!robot || !robot->isReady())
+    if(!robot || !robot->isPlaced())
     {
         return false;
     }

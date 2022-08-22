@@ -23,6 +23,9 @@ std::unique_ptr<ToyRobot::AbstractInputHandler> createInputHandler(int argc, cha
     }
 }
 
+const int s_defaultTableTopWidth = 5;
+const int s_defaultTableTopLength = 5;
+
 int main(int argc, char *argv[])
 {
     try {
@@ -40,7 +43,7 @@ int main(int argc, char *argv[])
             return 1;
         }
 
-        std::shared_ptr<ToyRobot::TableTop> tableTop = std::make_shared<ToyRobot::TableTop>(5, 5);
+        std::shared_ptr<ToyRobot::TableTop> tableTop = std::make_shared<ToyRobot::TableTop>(s_defaultTableTopWidth, s_defaultTableTopLength);
         std::shared_ptr<ToyRobot::ToyRobot> toyRobot = std::make_shared<ToyRobot::ToyRobot>(tableTop);
 
         std::string input;

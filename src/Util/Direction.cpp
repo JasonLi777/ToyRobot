@@ -35,14 +35,14 @@ bool Direction::isValid() const
     return m_index >= 0 && m_index < m_allDirection.size();
 }
 
-bool Direction::turn(const TurnEnum turn)
+bool Direction::turn(const TurnDirection turn)
 {
     if(!isValid())
     {
         return false;
     }
 
-    m_index += (turn == LEFT ? -1 : 1);
+    m_index += (turn == TurnDirection::LEFT ? -1 : 1);
 
     if(m_index == -1)
     {

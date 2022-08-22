@@ -27,7 +27,7 @@ bool TableTop::isValid() const
 
 bool TableTop::isOnTheTable(const Position &position) const
 {
-    if (!isValid())
+    if(!isValid())
     {
         return false;
     }

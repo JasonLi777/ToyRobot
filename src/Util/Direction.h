@@ -11,8 +11,8 @@ class Direction
 {
 public:
 
-    enum TurnEnum {
-        LEFT = 1,
+    enum class TurnDirection {
+        LEFT,
         RIGHT
     };
 
@@ -25,7 +25,7 @@ public:
 
     bool isValid() const;
 
-    bool turn(const TurnEnum turn);
+    bool turn(const TurnDirection turn);
 
     std::string toString() const;
 

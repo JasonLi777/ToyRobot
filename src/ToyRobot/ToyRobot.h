@@ -25,13 +25,13 @@ public:
     bool setDirection(const Direction& direction);
     Direction getDirection() const;
 
-    bool isReady() const;
+    bool isPlaced() const;
 
 private:
     std::shared_ptr<TableTop> m_tableTop;
     Position m_position;
     Direction m_direction;
-    bool m_ready;
+    bool m_placed;
 };
 
 }

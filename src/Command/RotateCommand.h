@@ -10,15 +10,15 @@ namespace ToyRobot
 class RotateCommand : public AbstractCommand
 {
 public:
-    RotateCommand(const Direction::TurnEnum direction);
+    RotateCommand(const Direction::TurnDirection direction);
     virtual ~RotateCommand() = default;
 
     virtual bool execute(ToyRobot* robot) override;
 
-    Direction::TurnEnum getDirection() const;
+    Direction::TurnDirection getDirection() const;
 
 private:
-    Direction::TurnEnum m_direction;
+    Direction::TurnDirection m_direction;
 };
 
 }

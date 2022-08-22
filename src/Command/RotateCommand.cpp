@@ -4,7 +4,7 @@
 namespace ToyRobot
 {
 
-RotateCommand::RotateCommand(const Direction::TurnEnum direction) :
+RotateCommand::RotateCommand(const Direction::TurnDirection direction) :
     m_direction(direction)
 {
 }
@@ -12,7 +12,7 @@ RotateCommand::RotateCommand(const Direction::TurnEnum direction) :
 
 bool RotateCommand::execute(ToyRobot *robot)
 {
-    if(!robot || !robot->isReady())
+    if(!robot || !robot->isPlaced())
     {
         return false;
     }

@@ -13,7 +13,7 @@ ReportCommand::ReportCommand() :
 
 bool ReportCommand::execute(ToyRobot *robot)
 {
-    if(!robot || !robot->isReady())
+    if(!robot || !robot->isPlaced())
     {
         return false;
     }
