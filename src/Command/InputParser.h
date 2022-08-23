@@ -17,7 +17,7 @@ class InputParser
 public:
     static InputParser* getInstance();
 
-    std::optional<std::shared_ptr<AbstractCommand>> parse(const std::string& input) const;
+    std::shared_ptr<AbstractCommand> parse(const std::string& input) const;
 
     void registerCommandFactory(std::shared_ptr<AbstractCommandFactory> factory);
 

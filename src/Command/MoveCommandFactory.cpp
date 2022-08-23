@@ -5,14 +5,14 @@
 namespace ToyRobot
 {
 
-std::optional<std::shared_ptr<AbstractCommand> > MoveCommandFactory::build(const std::string &command) const
+std::shared_ptr<AbstractCommand> MoveCommandFactory::build(const std::string &command) const
 {
     if(command == "MOVE")
     {
         return std::make_shared<MoveCommand>();
     }
 
-    return {};
+    return nullptr;
 }
 
 REGISTER_COMMAND_FACTORY(MoveCommandFactory);

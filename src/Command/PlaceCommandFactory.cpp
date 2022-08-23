@@ -8,7 +8,7 @@
 namespace ToyRobot
 {
 
-std::optional<std::shared_ptr<AbstractCommand> > PlaceCommandFactory::build(const std::string &command) const
+std::shared_ptr<AbstractCommand> PlaceCommandFactory::build(const std::string &command) const
 {
     std::smatch matchResult;
 
@@ -20,7 +20,7 @@ std::optional<std::shared_ptr<AbstractCommand> > PlaceCommandFactory::build(cons
     //matchResult[3]: direction
     if(!isMatched || matchResult.size() != 4)
     {
-        return {};
+        return nullptr;
     }
 
     auto position = Position(std::stoi(matchResult[1].str()), std::stoi(matchResult[2].str()));

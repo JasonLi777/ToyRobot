@@ -16,7 +16,7 @@ public:
     AbstractCommandFactory() = default;
     virtual ~AbstractCommandFactory() = default;
 
-    virtual std::optional<std::shared_ptr<AbstractCommand>> build(const std::string& command) const = 0;
+    virtual std::shared_ptr<AbstractCommand> build(const std::string& command) const = 0;
 };
 
 }

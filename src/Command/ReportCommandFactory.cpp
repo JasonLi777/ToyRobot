@@ -5,13 +5,13 @@
 namespace ToyRobot
 {
 
-std::optional<std::shared_ptr<AbstractCommand> > ReportCommandFactory::build(const std::string &command) const
+std::shared_ptr<AbstractCommand> ReportCommandFactory::build(const std::string &command) const
 {
     if(command == "REPORT")
     {
         return std::make_shared<ReportCommand>();
     }
-    return {};
+    return nullptr;
 }
 
 REGISTER_COMMAND_FACTORY(ReportCommandFactory);

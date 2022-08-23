@@ -43,16 +43,20 @@ int main(int argc, char *argv[])
             return 1;
         }
 
-        std::shared_ptr<ToyRobot::TableTop> tableTop = std::make_shared<ToyRobot::TableTop>(s_defaultTableTopWidth, s_defaultTableTopLength);
-        std::shared_ptr<ToyRobot::ToyRobot> toyRobot = std::make_shared<ToyRobot::ToyRobot>(tableTop);
+        auto tableTop = std::make_shared<ToyRobot::TableTop>(s_defaultTableTopWidth, s_defaultTableTopLength);
+        auto toyRobot = std::make_unique<ToyRobot::ToyRobot>(tableTop);
 
         std::string input;
         while(inputHandler->getLine(input))
         {
             auto command = ToyRobot::InputParser::getInstance()->parse(input);
-            if(command && command.value())
+            if(command)
             {
-                command.value()->execute(toyRobot.get());
+                command->execute(toyRobot.get());
+            }
+            else
+            {
+                std::cout << "Invalid input!" << std::endl;
             }
         }
     }

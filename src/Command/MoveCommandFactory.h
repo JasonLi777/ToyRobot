@@ -12,7 +12,7 @@ public:
     MoveCommandFactory() = default;
     virtual ~MoveCommandFactory() = default;
 
-    virtual std::optional<std::shared_ptr<AbstractCommand>> build(const std::string& command) const override;
+    virtual std::shared_ptr<AbstractCommand> build(const std::string& command) const override;
 };
 
 }

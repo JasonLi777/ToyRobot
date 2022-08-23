@@ -5,7 +5,7 @@
 namespace ToyRobot
 {
 
-std::optional<std::shared_ptr<AbstractCommand> > RotateCommandFactory::build(const std::string &command) const
+std::shared_ptr<AbstractCommand> RotateCommandFactory::build(const std::string &command) const
 {
     if(command == "LEFT")
     {
@@ -17,7 +17,7 @@ std::optional<std::shared_ptr<AbstractCommand> > RotateCommandFactory::build(con
     }
     else
     {
-        return {};
+        return nullptr;
     }
 }
 
