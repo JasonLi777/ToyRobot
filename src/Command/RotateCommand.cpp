@@ -10,7 +10,7 @@ RotateCommand::RotateCommand(const Direction::TurnDirection direction) :
 }
 
 
-bool RotateCommand::execute(ToyRobot *robot)
+bool RotateCommand::execute(std::shared_ptr<ToyRobot> robot)
 {
     if(!robot || !robot->isPlaced())
     {

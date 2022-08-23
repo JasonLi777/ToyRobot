@@ -13,7 +13,7 @@ public:
     RotateCommand(const Direction::TurnDirection direction);
     virtual ~RotateCommand() = default;
 
-    virtual bool execute(ToyRobot* robot) override;
+    virtual bool execute(std::shared_ptr<ToyRobot> robot) override;
 
     Direction::TurnDirection getDirection() const;
 

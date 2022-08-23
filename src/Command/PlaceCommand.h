@@ -17,7 +17,7 @@ public:
     PlaceCommand(const Position& position, const Direction& direction);
     virtual ~PlaceCommand() = default;
 
-    virtual bool execute(ToyRobot* robot) override;
+    virtual bool execute(std::shared_ptr<ToyRobot> robot) override;
 
 private:
     Position m_position;

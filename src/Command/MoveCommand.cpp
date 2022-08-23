@@ -24,7 +24,7 @@ const std::unordered_map<std::string, std::function<void(Position& position)>> M
     },
 };
 
-bool MoveCommand::execute(ToyRobot *robot)
+bool MoveCommand::execute(std::shared_ptr<ToyRobot> robot)
 {
     if(!robot || !robot->isPlaced())
     {

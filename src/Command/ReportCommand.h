@@ -13,7 +13,7 @@ public:
     ReportCommand();
     virtual ~ReportCommand() = default;
 
-    virtual bool execute(ToyRobot* robot) override;
+    virtual bool execute(std::shared_ptr<ToyRobot> robot) override;
 
     std::string getLastReport() const;
 

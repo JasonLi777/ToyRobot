@@ -16,7 +16,7 @@ public:
     MoveCommand() = default;
     virtual ~MoveCommand() = default;
 
-    virtual bool execute(ToyRobot* robot) override;
+    virtual bool execute(std::shared_ptr<ToyRobot> robot) override;
 
 private:
     const static std::unordered_map<std::string, std::function<void(Position& position)>> m_moveFuncMap;

@@ -1,6 +1,8 @@
 #ifndef ABSTRACTCOMMAND_H
 #define ABSTRACTCOMMAND_H
 
+#include <memory>
+
 namespace ToyRobot
 {
 
@@ -12,7 +14,7 @@ public:
     AbstractCommand() = default;
     virtual ~AbstractCommand() = default;
 
-    virtual bool execute(ToyRobot* robot) = 0;
+    virtual bool execute(std::shared_ptr<ToyRobot> robot) = 0;
 };
 
 }

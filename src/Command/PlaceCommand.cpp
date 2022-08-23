@@ -9,7 +9,7 @@ PlaceCommand::PlaceCommand(const Position &position, const Direction &direction)
 {
 }
 
-bool PlaceCommand::execute(ToyRobot *robot)
+bool PlaceCommand::execute(std::shared_ptr<ToyRobot> robot)
 {
     if(!robot)
     {

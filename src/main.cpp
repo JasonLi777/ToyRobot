@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
         }
 
         auto tableTop = std::make_shared<ToyRobot::TableTop>(s_defaultTableTopWidth, s_defaultTableTopLength);
-        auto toyRobot = std::make_unique<ToyRobot::ToyRobot>(tableTop);
+        auto toyRobot = std::make_shared<ToyRobot::ToyRobot>(tableTop);
 
         std::string input;
         while(inputHandler->getLine(input))
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
             auto command = ToyRobot::InputParser::getInstance()->parse(input);
             if(command)
             {
-                command->execute(toyRobot.get());
+                command->execute(toyRobot);
             }
             else
             {

@@ -11,7 +11,7 @@ ReportCommand::ReportCommand() :
 {
 }
 
-bool ReportCommand::execute(ToyRobot *robot)
+bool ReportCommand::execute(std::shared_ptr<ToyRobot> robot)
 {
     if(!robot || !robot->isPlaced())
     {
