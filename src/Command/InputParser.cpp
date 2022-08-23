@@ -15,12 +15,12 @@ std::shared_ptr<AbstractCommand> InputParser::parse(const std::string &input) co
 {
     for(const auto& factory : m_parserContainer)
     {
-        auto commandOpt = factory->build(input);
-
-        if(commandOpt)
+        if(!factory->isMatched(input))
         {
-            return commandOpt;
+            continue;
         }
+
+        return factory->build(input);
     }
 
     return nullptr;

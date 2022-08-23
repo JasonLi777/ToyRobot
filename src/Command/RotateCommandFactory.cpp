@@ -5,20 +5,19 @@
 namespace ToyRobot
 {
 
+bool RotateCommandFactory::isMatched(const std::string& command) const
+{
+    return command == "LEFT" || command == "RIGHT";
+}
+
 std::shared_ptr<AbstractCommand> RotateCommandFactory::build(const std::string &command) const
 {
-    if(command == "LEFT")
-    {
-        return std::make_shared<RotateCommand>(Direction::TurnDirection::LEFT);
-    }
-    else if(command == "RIGHT")
-    {
-        return std::make_shared<RotateCommand>(Direction::TurnDirection::RIGHT);
-    }
-    else
+    if(!isMatched(command))
     {
         return nullptr;
     }
+
+    return std::make_shared<RotateCommand>(command == "LEFT" ? Direction::TurnDirection::LEFT : Direction::TurnDirection::RIGHT);
 }
 
 REGISTER_COMMAND_FACTORY(RotateCommandFactory);

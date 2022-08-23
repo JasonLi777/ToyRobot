@@ -8,11 +8,18 @@
 namespace ToyRobot
 {
 
+const std::string PlaceCommandFactory::m_matchRegex = "PLACE ([0-4]),([0-4]),(NORTH|WEST|SOUTH|EAST)";
+
+bool PlaceCommandFactory::isMatched(const std::string& command) const
+{
+    std::smatch matchResult;
+    return std::regex_match(command, matchResult, std::regex(m_matchRegex));
+}
+
 std::shared_ptr<AbstractCommand> PlaceCommandFactory::build(const std::string &command) const
 {
     std::smatch matchResult;
-
-    bool isMatched = std::regex_match(command, matchResult, std::regex("PLACE ([0-4]),([0-4]),(NORTH|WEST|SOUTH|EAST)"));
+    bool isMatched = std::regex_match(command, matchResult, std::regex(m_matchRegex));
 
     //matchResult[0]: whole string
     //matchResult[1]: x

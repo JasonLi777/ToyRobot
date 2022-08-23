@@ -12,7 +12,12 @@ public:
     PlaceCommandFactory() = default;
     virtual ~PlaceCommandFactory() = default;
 
+    virtual bool isMatched(const std::string& command) const override;
+
     virtual std::shared_ptr<AbstractCommand> build(const std::string& command) const override;
+
+private:
+    static const std::string m_matchRegex;
 };
 
 }
