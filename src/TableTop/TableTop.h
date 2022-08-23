@@ -4,8 +4,6 @@
 namespace ToyRobot
 {
 
-class Position;
-
 class TableTop
 {
 public:
@@ -16,7 +14,7 @@ public:
     int getLength() const;
 
     bool isValid() const;
-    bool isOnTheTable(const Position& position) const;
+    bool isOnTheTable(const int x, const int y) const;
 
 private:
     int m_width;

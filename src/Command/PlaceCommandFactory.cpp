@@ -1,8 +1,8 @@
 #include "PlaceCommandFactory.h"
 #include "CommandFactoryRegister.h"
 #include "PlaceCommand.h"
-#include "../Util/Direction.h"
-#include "../Util/Position.h"
+#include "../ToyRobot/Direction.h"
+#include "../ToyRobot/Position.h"
 #include <regex>
 
 namespace ToyRobot

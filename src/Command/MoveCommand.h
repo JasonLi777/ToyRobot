@@ -2,8 +2,6 @@
 #define MOVECOMMAND_H
 
 #include "AbstractCommand.h"
-#include <unordered_map>
-#include <functional>
 
 namespace ToyRobot
 {
@@ -17,9 +15,6 @@ public:
     virtual ~MoveCommand() = default;
 
     virtual bool execute(std::shared_ptr<ToyRobot> robot) override;
-
-private:
-    const static std::unordered_map<std::string, std::function<void(Position& position)>> m_moveFuncMap;
 };
 
 }

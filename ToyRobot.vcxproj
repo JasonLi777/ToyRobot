@@ -33,9 +33,9 @@
     <ClCompile Include="src\InputHandler\FileInputHandler.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\TableTop\TableTop.cpp" />
+    <ClCompile Include="src\ToyRobot\Direction.cpp" />
+    <ClCompile Include="src\ToyRobot\Position.cpp" />
     <ClCompile Include="src\ToyRobot\ToyRobot.cpp" />
-    <ClCompile Include="src\Util\Direction.cpp" />
-    <ClCompile Include="src\Util\Position.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Command\AbstractCommand.h" />
@@ -54,9 +54,9 @@
     <ClInclude Include="src\InputHandler\ConsoleInputHandler.h" />
     <ClInclude Include="src\InputHandler\FileInputHandler.h" />
     <ClInclude Include="src\TableTop\TableTop.h" />
+    <ClInclude Include="src\ToyRobot\Direction.h" />
+    <ClInclude Include="src\ToyRobot\Position.h" />
     <ClInclude Include="src\ToyRobot\ToyRobot.h" />
-    <ClInclude Include="src\Util\Direction.h" />
-    <ClInclude Include="src\Util\Position.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

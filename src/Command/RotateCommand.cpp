@@ -4,23 +4,20 @@
 namespace ToyRobot
 {
 
-RotateCommand::RotateCommand(const Direction::TurnDirection direction) :
-    m_direction(direction)
+RotateCommand::RotateCommand(const Direction::TurnDirection turnDirection) :
+    m_turnDirection(turnDirection)
 {
 }
 
 
 bool RotateCommand::execute(std::shared_ptr<ToyRobot> robot)
 {
-    if(!robot || !robot->isPlaced())
+    if(!robot)
     {
         return false;
     }
 
-    auto direction = robot->getDirection();
-    direction.turn(m_direction);
-
-    return robot->setDirection(direction);
+    return robot->rotate(m_turnDirection);
 }
 
 }

@@ -2,7 +2,7 @@
 #define ROTATECOMMAND_H
 
 #include "AbstractCommand.h"
-#include "../Util/Direction.h"
+#include "../ToyRobot/Direction.h"
 
 namespace ToyRobot
 {
@@ -10,7 +10,7 @@ namespace ToyRobot
 class RotateCommand : public AbstractCommand
 {
 public:
-    RotateCommand(const Direction::TurnDirection direction);
+    RotateCommand(const Direction::TurnDirection turnDirection);
     virtual ~RotateCommand() = default;
 
     virtual bool execute(std::shared_ptr<ToyRobot> robot) override;
@@ -18,7 +18,7 @@ public:
     Direction::TurnDirection getDirection() const;
 
 private:
-    Direction::TurnDirection m_direction;
+    Direction::TurnDirection m_turnDirection;
 };
 
 }

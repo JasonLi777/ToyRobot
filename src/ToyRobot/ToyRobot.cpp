@@ -4,6 +4,26 @@
 namespace ToyRobot
 {
 
+const std::unordered_map<std::string, std::function<void(Position& position)>> ToyRobot::m_moveFuncMap =
+{
+    {
+        "NORTH",
+        [](Position& position) { position.setY(position.getY() + 1); }
+    },
+    {
+        "WEST",
+        [](Position& position) { position.setX(position.getX() - 1); }
+    },
+    {
+        "SOUTH",
+        [](Position& position) { position.setY(position.getY() - 1); }
+    },
+    {
+        "EAST",
+        [](Position& position) { position.setX(position.getX() + 1); }
+    },
+};
+
 ToyRobot::ToyRobot(const std::shared_ptr<TableTop> &tableTop) :
     m_tableTop(std::move(tableTop)),
     m_position(Position()),
@@ -14,7 +34,7 @@ ToyRobot::ToyRobot(const std::shared_ptr<TableTop> &tableTop) :
 
 bool ToyRobot::place(const Position &position, const Direction &direction)
 {
-    if(!m_tableTop || !(position.isValid() && direction.isValid()) || !m_tableTop->isOnTheTable(position))
+    if(!m_tableTop || !(position.isValid() && direction.isValid()) || !m_tableTop->isOnTheTable(position.getX(), position.getY()))
     {
         return false;
     }
@@ -26,33 +46,45 @@ bool ToyRobot::place(const Position &position, const Direction &direction)
     return true;
 }
 
-bool ToyRobot::setPosition(const Position &position)
+bool ToyRobot::move()
 {
-    if(!m_placed || !m_tableTop->isOnTheTable(position))
+    if(!isPlaced())
     {
         return false;
     }
 
-    m_position = position;
+    auto itr = m_moveFuncMap.find(m_direction.toString());
+    if(itr == m_moveFuncMap.end())
+    {
+        return false;
+    }
 
+    auto newPosition = m_position;
+    itr->second(newPosition);
+
+    if(!m_tableTop->isOnTheTable(newPosition.getX(), newPosition.getY()))
+    {
+        return false;
+    }
+    m_position = newPosition;
+
+    return true;
+}
+
+bool ToyRobot::rotate(const Direction::TurnDirection turnDirection)
+{
+    if(!isPlaced())
+    {
+        return false;
+    }
+
+    m_direction.turn(turnDirection);
     return true;
 }
 
 Position ToyRobot::getPosition() const
 {
     return m_position;
-}
-
-bool ToyRobot::setDirection(const Direction &direction)
-{
-    if(!m_placed || !direction.isValid())
-    {
-        return false;
-    }
-
-    m_direction = direction;
-
-    return true;
 }
 
 Direction ToyRobot::getDirection() const
