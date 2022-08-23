@@ -63,9 +63,6 @@
     <ClCompile Include="src\Command\CommandFactoryRegister.cpp">
       <Filter>Source Files\Command</Filter>
     </ClCompile>
-    <ClCompile Include="src\Command\InputParser.cpp">
-      <Filter>Source Files\Command</Filter>
-    </ClCompile>
     <ClCompile Include="src\Command\MoveCommandFactory.cpp">
       <Filter>Source Files\Command</Filter>
     </ClCompile>
@@ -89,6 +86,9 @@
     </ClCompile>
     <ClCompile Include="src\ToyRobot\Position.cpp">
       <Filter>Source Files\ToyRobot</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Command\CommandFactoryManager.cpp">
+      <Filter>Source Files\Command</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -119,9 +119,6 @@
     <ClInclude Include="src\Command\CommandFactoryRegister.h">
       <Filter>Header Files\Command</Filter>
     </ClInclude>
-    <ClInclude Include="src\Command\InputParser.h">
-      <Filter>Header Files\Command</Filter>
-    </ClInclude>
     <ClInclude Include="src\Command\MoveCommandFactory.h">
       <Filter>Header Files\Command</Filter>
     </ClInclude>
@@ -148,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="src\ToyRobot\Position.h">
       <Filter>Header Files\ToyRobot</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Command\CommandFactoryManager.h">
+      <Filter>Header Files\Command</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,12 +1,12 @@
 #include "CommandFactoryRegister.h"
-#include "InputParser.h"
+#include "CommandFactoryManager.h"
 
 namespace ToyRobot
 {
 
-CommandFactoryRegister::CommandFactoryRegister(std::shared_ptr<AbstractCommandFactory> parser)
+CommandFactoryRegister::CommandFactoryRegister(std::shared_ptr<AbstractCommandFactory> factory)
 {
-    InputParser::getInstance()->registerCommandFactory(parser);
+    CommandFactoryManager::getInstance()->registerCommandFactory(factory);
 }
 
 }

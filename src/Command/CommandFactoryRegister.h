@@ -11,7 +11,7 @@ class AbstractCommandFactory;
 class CommandFactoryRegister
 {
 public:
-    CommandFactoryRegister(std::shared_ptr<AbstractCommandFactory> parser);
+    CommandFactoryRegister(std::shared_ptr<AbstractCommandFactory> factory);
     ~CommandFactoryRegister() = default;
 };
 

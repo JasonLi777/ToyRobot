@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <functional>
+#include <unordered_map>
 #include "Direction.h"
 #include "Position.h"
 

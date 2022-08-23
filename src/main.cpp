@@ -2,7 +2,7 @@
 #include <string>
 #include "ToyRobot/ToyRobot.h"
 #include "TableTop/TableTop.h"
-#include "Command/InputParser.h"
+#include "Command/CommandFactoryManager.h"
 #include "InputHandler/ConsoleInputHandler.h"
 #include "InputHandler/FileInputHandler.h"
 #include "Command/AbstractCommand.h"
@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
         std::string input;
         while(inputHandler->getLine(input))
         {
-            auto command = ToyRobot::InputParser::getInstance()->parse(input);
+            auto command = ToyRobot::CommandFactoryManager::getInstance()->buildCommand(input);
             if(command)
             {
                 command->execute(toyRobot);

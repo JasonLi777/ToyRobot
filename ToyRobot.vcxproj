@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Command\CommandFactoryManager.cpp" />
     <ClCompile Include="src\Command\CommandFactoryRegister.cpp" />
-    <ClCompile Include="src\Command\InputParser.cpp" />
     <ClCompile Include="src\Command\MoveCommand.cpp" />
     <ClCompile Include="src\Command\MoveCommandFactory.cpp" />
     <ClCompile Include="src\Command\PlaceCommand.cpp" />
@@ -40,8 +40,8 @@
   <ItemGroup>
     <ClInclude Include="src\Command\AbstractCommand.h" />
     <ClInclude Include="src\Command\AbstractCommandFactory.h" />
+    <ClInclude Include="src\Command\CommandFactoryManager.h" />
     <ClInclude Include="src\Command\CommandFactoryRegister.h" />
-    <ClInclude Include="src\Command\InputParser.h" />
     <ClInclude Include="src\Command\MoveCommand.h" />
     <ClInclude Include="src\Command\MoveCommandFactory.h" />
     <ClInclude Include="src\Command\PlaceCommand.h" />
