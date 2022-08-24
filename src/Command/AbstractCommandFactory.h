@@ -1,7 +1,6 @@
 #ifndef ABSTRACTCOMMANDFACTORY_H
 #define ABSTRACTCOMMANDFACTORY_H
 
-#include <optional>
 #include <memory>
 #include <string>
 

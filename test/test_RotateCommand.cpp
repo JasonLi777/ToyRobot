@@ -1,55 +1,65 @@
 #include "pch.h"
-#include "..\src\Command\AbstractCommand.h"
-#include "..\src\Command\PlaceCommand.h"
-#include "..\src\Command\RotateCommand.h"
-#include "..\src\TableTop\TableTop.h"
-#include "..\src\ToyRobot\ToyRobotStatus.h"
+#include "../src/Command/PlaceCommand.h"
+#include "../src/Command/RotateCommand.h"
+#include "../src/TableTop/TableTop.h"
+#include "../src/ToyRobot/ToyRobot.h"
 
-TEST(RotateCommandTest, Rotate_Left_Success)
+namespace ToyRobot
 {
-    std::shared_ptr<TableTop> tableTop = std::make_shared<TableTop>();
-    Position position = Position(0, 0);
-    Direction direction = Direction(Direction::NORTH);
+    TEST(RotateCommandTest, BeforePlaceCommand)
+    {
+        auto tableTop = std::make_shared<TableTop>(5, 5);
+        auto toyRobot = std::make_shared<ToyRobot>(tableTop);
 
-    std::shared_ptr<AbstractCommand> placeCommand = std::make_shared<PlaceCommand>(tableTop, position, direction);
-    ToyRobotStatus newStatus = placeCommand->execute(ToyRobotStatus());
+        std::unique_ptr<AbstractCommand> leftCommand = std::make_unique<RotateCommand>(Direction::TurnDirection::LEFT);
+        std::unique_ptr<AbstractCommand> rightCommand = std::make_unique<RotateCommand>(Direction::TurnDirection::RIGHT);
 
-    std::shared_ptr<AbstractCommand> rotateCommand = std::make_shared<RotateCommand>(Direction::LEFT);
-    newStatus = rotateCommand->execute(newStatus);
+        EXPECT_FALSE(leftCommand->execute(toyRobot));
+        EXPECT_FALSE(rightCommand->execute(toyRobot));
+    }
 
-    EXPECT_EQ(newStatus.direction(), Direction::WEST);
-    EXPECT_EQ(newStatus.position(), position);
-    EXPECT_EQ(newStatus.tableTop(), tableTop);
-}
+    TEST(RotateCommandTest, LeftCommand)
+    {
+        auto tableTop = std::make_shared<TableTop>(5, 5);
+        auto toyRobot = std::make_shared<ToyRobot>(tableTop);
 
-TEST(RotateCommandTest, Rotate_Right_Success)
-{
-    std::shared_ptr<TableTop> tableTop = std::make_shared<TableTop>();
-    Position position = Position(0, 0);
-    Direction direction = Direction(Direction::NORTH);
+        std::unique_ptr<AbstractCommand> leftCommand = std::make_unique<RotateCommand>(Direction::TurnDirection::LEFT);
+        std::unique_ptr<AbstractCommand> placeCommand = std::make_unique<PlaceCommand>(Position(0, 0), Direction("NORTH"));
 
-    std::shared_ptr<AbstractCommand> placeCommand = std::make_shared<PlaceCommand>(tableTop, position, direction);
-    ToyRobotStatus newStatus = placeCommand->execute(ToyRobotStatus());
+        EXPECT_TRUE(placeCommand->execute(toyRobot));
+        EXPECT_EQ(toyRobot->getPosition(), Position(0, 0));
+        EXPECT_EQ(toyRobot->getDirection(), Direction("NORTH"));
 
-    std::shared_ptr<AbstractCommand> rotateCommand = std::make_shared<RotateCommand>(Direction::RIGHT);
-    newStatus = rotateCommand->execute(newStatus);
+        EXPECT_TRUE(leftCommand->execute(toyRobot));
+        EXPECT_EQ(toyRobot->getDirection(), Direction("WEST"));
+        EXPECT_TRUE(leftCommand->execute(toyRobot));
+        EXPECT_EQ(toyRobot->getDirection(), Direction("SOUTH"));
+        EXPECT_TRUE(leftCommand->execute(toyRobot));
+        EXPECT_EQ(toyRobot->getDirection(), Direction("EAST"));
+        EXPECT_TRUE(leftCommand->execute(toyRobot));
+        EXPECT_EQ(toyRobot->getDirection(), Direction("NORTH"));
+    }
 
-    EXPECT_EQ(newStatus.direction(), Direction::EAST);
-    EXPECT_EQ(newStatus.position(), position);
-    EXPECT_EQ(newStatus.tableTop(), tableTop);
-}
+    TEST(RotateCommandTest, RightCommand)
+    {
+        auto tableTop = std::make_shared<TableTop>(5, 5);
+        auto toyRobot = std::make_shared<ToyRobot>(tableTop);
 
+        std::unique_ptr<AbstractCommand> rightCommand = std::make_unique<RotateCommand>(Direction::TurnDirection::RIGHT);
+        std::unique_ptr<AbstractCommand> placeCommand = std::make_unique<PlaceCommand>(Position(0, 0), Direction("NORTH"));
 
-TEST(RotateCommandTest, Rotate_NotPlacedYet)
-{
-    std::shared_ptr<TableTop> tableTop = std::make_shared<TableTop>();
-    Position position = Position(0, 0);
-    Direction direction = Direction(Direction::NORTH);
+        EXPECT_TRUE(placeCommand->execute(toyRobot));
+        EXPECT_EQ(toyRobot->getPosition(), Position(0, 0));
+        EXPECT_EQ(toyRobot->getDirection(), Direction("NORTH"));
 
-    std::shared_ptr<AbstractCommand> rotateCommand = std::make_shared<RotateCommand>(Direction::RIGHT);
-    ToyRobotStatus newStatus = rotateCommand->execute(ToyRobotStatus());
+        EXPECT_TRUE(rightCommand->execute(toyRobot));
+        EXPECT_EQ(toyRobot->getDirection(), Direction("EAST"));
+        EXPECT_TRUE(rightCommand->execute(toyRobot));
+        EXPECT_EQ(toyRobot->getDirection(), Direction("SOUTH"));
+        EXPECT_TRUE(rightCommand->execute(toyRobot));
+        EXPECT_EQ(toyRobot->getDirection(), Direction("WEST"));
+        EXPECT_TRUE(rightCommand->execute(toyRobot));
+        EXPECT_EQ(toyRobot->getDirection(), Direction("NORTH"));
+    }
 
-    EXPECT_EQ(newStatus.direction(), Direction());
-    EXPECT_EQ(newStatus.position(), Position());
-    EXPECT_EQ(newStatus.tableTop(), nullptr);
 }

@@ -1,36 +1,35 @@
 #include "pch.h"
-#include "..\src\Command\AbstractCommand.h"
-#include "..\src\Command\ReportCommand.h"
-#include "..\src\TableTop\TableTop.h"
-#include "..\src\ToyRobot\ToyRobotStatus.h"
+#include "../src/Command/ReportCommand.h"
+#include "../src/Command/PlaceCommand.h"
+#include "../src/TableTop/TableTop.h"
+#include "../src/ToyRobot/ToyRobot.h"
 
-TEST(ReportCommandTest, Report_Success)
+namespace ToyRobot
 {
-    std::shared_ptr<TableTop> tableTop = std::make_shared<TableTop>();
-    Position position = Position(0, 0);
-    Direction direction = Direction(Direction::NORTH);
+    TEST(ReportCommandTest, BeforePlaceCommand)
+    {
+        auto tableTop = std::make_shared<TableTop>(5, 5);
+        auto toyRobot = std::make_shared<ToyRobot>(tableTop);
 
-    ToyRobotStatus newStatus = ToyRobotStatus();
-    newStatus.setTableTop(tableTop);
-    newStatus.setPosition(position);
-    newStatus.setDirection(direction);
+        auto reportCommand = std::make_unique<ReportCommand>();
 
-    std::shared_ptr<ReportCommand> reportCommand = std::make_shared<ReportCommand>();
-    newStatus = reportCommand->execute(newStatus);
+        EXPECT_FALSE(reportCommand->execute(toyRobot));
+        EXPECT_EQ(reportCommand->getLastReport(), "");
+    }
 
-    EXPECT_EQ(newStatus.direction(), direction);
-    EXPECT_EQ(newStatus.position(), position);
-    EXPECT_EQ(newStatus.tableTop(), tableTop);
-    EXPECT_EQ(reportCommand->getLastReport(), "0,0,NORTH");
-}
+    TEST(ReportCommandTest, ReportCommand)
+    {
+        auto tableTop = std::make_shared<TableTop>(5, 5);
+        auto toyRobot = std::make_shared<ToyRobot>(tableTop);
 
-TEST(ReportCommandTest, Report_Fail_Not_Placed_Yet)
-{
-    std::shared_ptr<ReportCommand> reportCommand = std::make_shared<ReportCommand>();
-    ToyRobotStatus newStatus = reportCommand->execute(ToyRobotStatus());
+        std::unique_ptr<AbstractCommand> placeCommand = std::make_unique<PlaceCommand>(Position(0, 0), Direction("NORTH"));
+        std::unique_ptr<ReportCommand> reportCommand = std::make_unique<ReportCommand>();
 
-    EXPECT_EQ(newStatus.direction(), Direction());
-    EXPECT_EQ(newStatus.position(), Position());
-    EXPECT_EQ(newStatus.tableTop(), nullptr);
-    EXPECT_EQ(reportCommand->getLastReport(), "");
+        EXPECT_TRUE(placeCommand->execute(toyRobot));
+        EXPECT_EQ(toyRobot->getPosition(), Position(0, 0));
+        EXPECT_EQ(toyRobot->getDirection(), Direction("NORTH"));
+        EXPECT_TRUE(reportCommand->execute(toyRobot));
+        EXPECT_EQ(reportCommand->getLastReport(), "0,0,NORTH");
+    }
+
 }

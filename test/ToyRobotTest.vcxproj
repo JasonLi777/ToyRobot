@@ -36,15 +36,17 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test_ToyRobotController.cpp" />
+    <ClCompile Include="test_CommandFactoryRegister.cpp" />
+    <ClCompile Include="test_MoveCommandFactory.cpp" />
+    <ClCompile Include="test_ReportCommandFactory.cpp" />
+    <ClCompile Include="test_PlaceCommandFactory.cpp" />
+    <ClCompile Include="test_RotateCommandFactory.cpp" />
     <ClCompile Include="test_ToyRobot.cpp" />
     <ClCompile Include="test_ReportCommand.cpp" />
     <ClCompile Include="test_MoveCommand.cpp" />
     <ClCompile Include="test_RotateCommand.cpp" />
     <ClCompile Include="test_PlaceCommand.cpp" />
-    <ClCompile Include="test_ToyRobotStatus.cpp" />
     <ClCompile Include="test_TableTop.cpp" />
-    <ClCompile Include="test_StringHelper.cpp" />
     <ClCompile Include="test_Position.cpp" />
     <ClCompile Include="test_Direction.cpp" />
     <ClCompile Include="pch.cpp">
@@ -96,7 +98,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>Position;Direction;StringHelper;TableTop;ToyRobotStatus;AbstractCommand;PlaceCommand;MoveCommand;RotateCommand;ReportCommand;ToyRobot;ToyRobotController;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Position;Direction;TableTop;CommandFactoryManager;CommandFactoryRegister;PlaceCommand;PlaceCommandFactory;MoveCommand;MoveCommandFactory;RotateCommand;RotateCommandFactory;ReportCommand;ReportCommandFactory;ToyRobot;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(TargetDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
