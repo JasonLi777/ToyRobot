@@ -6,6 +6,7 @@
 #include "InputHandler/ConsoleInputHandler.h"
 #include "InputHandler/FileInputHandler.h"
 #include "Command/AbstractCommand.h"
+#include "Command/AbstractCommandFactory.h"
 
 std::unique_ptr<ToyRobot::AbstractInputHandler> createInputHandler(int argc, char *argv[])
 {
@@ -49,9 +50,10 @@ int main(int argc, char *argv[])
         std::string input;
         while(inputHandler->getLine(input))
         {
-            auto command = ToyRobot::CommandFactoryManager::getInstance()->buildCommand(input);
-            if(command)
+            auto commandFactory = ToyRobot::CommandFactoryManager::getInstance()->findFactory(input);
+            if(commandFactory)
             {
+                auto command = commandFactory->build(input);
                 command->execute(toyRobot);
             }
             else

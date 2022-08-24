@@ -11,16 +11,14 @@ CommandFactoryManager *CommandFactoryManager::getInstance()
     return &instance;
 }
 
-std::shared_ptr<AbstractCommand> CommandFactoryManager::buildCommand(const std::string &input) const
+std::shared_ptr<AbstractCommandFactory> CommandFactoryManager::findFactory(const std::string &input) const
 {
     for(const auto& factory : m_allFactory)
     {
-        if(!factory->isMatched(input))
+        if(factory->isMatched(input))
         {
-            continue;
+            return factory;
         }
-
-        return factory->build(input);
     }
 
     return nullptr;

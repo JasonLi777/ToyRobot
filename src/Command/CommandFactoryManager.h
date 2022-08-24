@@ -8,7 +8,6 @@
 namespace ToyRobot
 {
 
-class AbstractCommand;
 class AbstractCommandFactory;
 
 class CommandFactoryManager
@@ -16,7 +15,7 @@ class CommandFactoryManager
 public:
     static CommandFactoryManager* getInstance();
 
-    std::shared_ptr<AbstractCommand> buildCommand(const std::string& input) const;
+    std::shared_ptr<AbstractCommandFactory> findFactory(const std::string& input) const;
 
     void registerCommandFactory(std::shared_ptr<AbstractCommandFactory> factory);
 
