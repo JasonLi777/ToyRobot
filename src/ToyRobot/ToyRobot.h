@@ -16,7 +16,7 @@ class TableTop;
 class ToyRobot
 {
 public:
-    ToyRobot(const std::shared_ptr<TableTop>& tableTop);
+    ToyRobot(std::shared_ptr<TableTop> tableTop);
     ~ToyRobot() = default;
 
     bool place(const Position& position, const Direction& direction);

@@ -24,8 +24,8 @@ const std::unordered_map<std::string, std::function<void(Position& position)>> T
     },
 };
 
-ToyRobot::ToyRobot(const std::shared_ptr<TableTop> &tableTop) :
-    m_tableTop(std::move(tableTop)),
+ToyRobot::ToyRobot(std::shared_ptr<TableTop> tableTop) :
+    m_tableTop(tableTop),
     m_position(Position()),
     m_direction(Direction()),
     m_placed(false)
